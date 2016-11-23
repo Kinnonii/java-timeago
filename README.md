@@ -18,7 +18,7 @@ This library is forked from Kevin Sawicki's 'java-timeago' to support more than 
 * Add the dependency
 ```xml
 <dependency>
-	    <groupId>com.github.Kinnonii</groupId>
+	    <groupId>com.github.pedroadame</groupId>
 	    <artifactId>Java-TimeAgo-Multilanguage</artifactId>
 	    <version>1.5.0</version>
 </dependency>
@@ -32,7 +32,7 @@ repositories {
 	    }
 }
 dependencies {
-	        compile 'com.github.kinnonii:java-timeAgo-multilanguage:1.5.0'
+	        compile 'com.github.pedroadame:java-timeAgo-multilanguage:1.5.0'
 }
 ```
 
@@ -65,7 +65,7 @@ repositories {
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.github.kinnonii:java-timeAgo-multilanguage:1.5.0'
+    compile 'com.github.pedroadame:java-timeAgo-multilanguage:1.5.0'
     //Other libraries...
 }
 ```
