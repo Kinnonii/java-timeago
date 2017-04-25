@@ -22,6 +22,7 @@
 package com.github.kinnonii.timeago;
 
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -35,6 +36,7 @@ import java.util.Date;
  */
 public class TimeAgo {
 
+	private static final String[] SUPPORTED_LOCALES = new String[] {"en","es","it","fr","de","el","cs","pt"};
 	private String prefixAgo;
 	private String prefixFromNow;
 	private String suffixAgo;
@@ -60,18 +62,11 @@ public class TimeAgo {
 	}
 
 	private void init(String locale){
-		if(locale.equals("en"))
-			initLanguage("EN");
-		else if(locale.equals("es"))
-			initLanguage("ES");
-		else if(locale.equals("it"))
-			initLanguage("IT");
-		else if(locale.equals("fr"))
-			initLanguage("FR");
-		else if(locale.equals("de"))
-			initLanguage("DE");
-		else
+		if (Arrays.asList(SUPPORTED_LOCALES).contains(locale)) {
+			initLanguage(locale.toUpperCase());
+		} else {
 			throw new IllegalArgumentException("Locale not recognised or it isn't supported yet.");
+		}
 	}
 
 	private void initLanguage(String language) {
@@ -474,18 +469,10 @@ public class TimeAgo {
 	 * @param locale The new language. Must be equals to 'en', 'es', 'it', 'fr' or 'de'.
 	 */
 	 public void changeLanguage(String locale){
-	 	if(locale.equals("en"))
-			initLanguage("EN");
-		else if(locale.equals("es"))
-			initLanguage("ES");
-		else if(locale.equals("it"))
-			initLanguage("IT");
-		else if(locale.equals("fr"))
-			initLanguage("FR");
-		else if(locale.equals("de"))
-			initLanguage("DE");
-		else
-			throw new IllegalArgumentException("Locale not recognised or it isn't supported yet.");
-		
+		 if (Arrays.asList(SUPPORTED_LOCALES).contains(locale)) {
+			 initLanguage(locale.toUpperCase());
+		 } else {
+			 throw new IllegalArgumentException("Locale not recognised or it isn't supported yet.");
+		 }
 	 }
 }

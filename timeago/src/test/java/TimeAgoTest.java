@@ -201,4 +201,55 @@ public class TimeAgoTest extends TestCase {
 						ago.getSuffixAgo());
 		assertEquals(expected, time);
 	}
+
+	/**
+	 * Test a month ago EL
+	 */
+	public void testAgoMonthEL() {
+		TimeAgo ago = new TimeAgo("el");
+		long months = 2;
+		String time = ago.timeAgo(ago(months * MONTH));
+		String expected = ago.join(ago.getPrefixAgo(),
+				MessageFormat.format(ago.getMonths(), months),
+				ago.getSuffixAgo());
+		assertEquals(expected, time);
+	}
+
+	/**
+	 * Test a month ago CS
+	 */
+	public void testAgoMonthCS() {
+		TimeAgo ago = new TimeAgo("cs");
+		long months = 2;
+		String time = ago.timeAgo(ago(months * MONTH));
+		String expected = ago.join(ago.getPrefixAgo(),
+				MessageFormat.format(ago.getMonths(), months),
+				ago.getSuffixAgo());
+		assertEquals(expected, time);
+	}
+
+	/**
+	 * Test a month ago PT
+	 */
+	public void testAgoMonthPT() {
+		TimeAgo ago = new TimeAgo("pt");
+		long months = 2;
+		String time = ago.timeAgo(ago(months * MONTH));
+		String expected = ago.join(ago.getPrefixAgo(),
+				MessageFormat.format(ago.getMonths(), months),
+				ago.getSuffixAgo());
+		assertEquals(expected, time);
+	}
+
+	/**
+	 * Test a month ago with invalid locale
+	 */
+	public void testAgoMonthNotSupported() {
+		try {
+			TimeAgo ago = new TimeAgo("oo");
+		}catch (Exception e) {
+			assertEquals(IllegalArgumentException.class, e.getClass());
+			assertEquals("Locale not recognised or it isn't supported yet.", e.getMessage());
+		}
+	}
 }
